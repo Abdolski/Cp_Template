@@ -1,7 +1,4 @@
 //
-// Created by expert on 1/17/2026.
-//
-//
 // Created by expert on 12/2/2025.
 //
 #include <bits/stdc++.h>
@@ -1104,56 +1101,22 @@ struct LCA {
 // }
 //
 
+int msb_pos(long long n) {
+    return 63 - __builtin_clzll(n);
+}
 
 const int MAXI=1e6 +5;
 
+
 void solve() {
-    ll n; cin >> n;
-    vector<int> a(n);
-    for (int i = 0; i < n; i++) cin >> a[i];
 
-    map<int,int> freq;
-    set<int> miss;
 
-    for (int i = 0; i <= n; i++) {
-        miss.insert(i);
-    }
-
-    ll l = 0;
-    ll best = 0;
-    ll len = 1;
-
-    for (int r = 0; r < n; r++) {
-        freq[a[r]]++;
-        miss.erase(a[r]);
-
-        while (freq[a[r]] > 1) {
-            freq[a[l]]--;
-            if (freq[a[l]] == 0) {
-                miss.insert(a[l]);
-            }
-            l++;
-        }
-
-        ll mex = *miss.begin();
-        if (mex > best) {
-            best = mex;
-            len = r - l + 1;
-        }
-        else if (mex == best) {len=max(len,r-l+1);}
-
-    }
-
-    cout << len << endl;
 }
-
 
 int main() {
     FAST
     // seive();
     // preproc();
-
-
 
     ll t=1;
     // cin >> t;
